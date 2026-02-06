@@ -14,7 +14,6 @@ public partial class Main : Control
     private GameClock _clock = null!;
     private int _homeScore;
     private int _awayScore;
-    private Timer _timer = null!;
 
     private RichTextLabel _feed = null!;
     private Label _clockLabel = null!;
@@ -30,8 +29,8 @@ public partial class Main : Control
         _defender = PlayerProfile.CreateSample("Defender One", Position.ShootingGuard, CareerPhase.HighSchool);
         _clock = new GameClock(12 * 60, 4);
 
-        _timer = GetNode<Timer>("PossessionTimer");
-        _timer.Timeout += OnPossessionTick;
+        var timer = GetNode<Timer>("PossessionTimer");
+        timer.Timeout += OnPossessionTick;
 
         AppendFeed("[b]Tip-off![/b] The game is underway.");
         UpdateLabels();
@@ -41,9 +40,6 @@ public partial class Main : Control
     {
         if (_clock.IsFinalBuzzer)
         {
-            _timer.Stop();
-            AppendFeed("[b]Final buzzer.[/b] Game over.");
-            UpdateLabels();
             return;
         }
 
