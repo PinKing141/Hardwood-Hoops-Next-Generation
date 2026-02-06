@@ -23,28 +23,107 @@ offset_top = 16.0
 offset_right = -16.0
 offset_bottom = -16.0
 
-[node name="Root" type="VBoxContainer" parent="Margin"]
+[node name="Tabs" type="TabContainer" parent="Margin"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Header" type="HBoxContainer" parent="Margin/Root"]
+[node name="LockerRoom" type="VBoxContainer" parent="Margin/Tabs"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerHeader" type="HBoxContainer" parent="Margin/Tabs/LockerRoom"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Margin/Root/Header"]
+[node name="NameLabel" type="Label" parent="Margin/Tabs/LockerRoom/PlayerHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Player Name"
+
+[node name="PositionLabel" type="Label" parent="Margin/Tabs/LockerRoom/PlayerHeader"]
+layout_mode = 2
+text = "Position"
+
+[node name="CareerLabel" type="Label" parent="Margin/Tabs/LockerRoom/PlayerHeader"]
+layout_mode = 2
+text = "Phase"
+
+[node name="HypeLabel" type="Label" parent="Margin/Tabs/LockerRoom/PlayerHeader"]
+layout_mode = 2
+text = "Hype 0"
+
+[node name="ArchetypeLabel" type="Label" parent="Margin/Tabs/LockerRoom"]
+layout_mode = 2
+text = "Archetype: Balanced"
+
+[node name="OvrSection" type="VBoxContainer" parent="Margin/Tabs/LockerRoom"]
+layout_mode = 2
+
+[node name="OvrTitle" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection"]
+layout_mode = 2
+text = "OVR Comparison"
+
+[node name="OvrRow" type="HBoxContainer" parent="Margin/Tabs/LockerRoom/OvrSection"]
+layout_mode = 2
+
+[node name="PublicOvrBox" type="VBoxContainer" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PublicOvrTitle" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow/PublicOvrBox"]
+layout_mode = 2
+text = "Public OVR"
+
+[node name="PublicOvrValue" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow/PublicOvrBox"]
+layout_mode = 2
+text = "0.0"
+
+[node name="PrivateOvrBox" type="VBoxContainer" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PrivateOvrTitle" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow/PrivateOvrBox"]
+layout_mode = 2
+text = "Scout's Insight"
+
+[node name="PrivateOvrValue" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow/PrivateOvrBox"]
+layout_mode = 2
+text = "0.0"
+
+[node name="AttributeTitle" type="Label" parent="Margin/Tabs/LockerRoom"]
+layout_mode = 2
+text = "Attributes"
+
+[node name="AttributeScroll" type="ScrollContainer" parent="Margin/Tabs/LockerRoom"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AttributeGrid" type="VBoxContainer" parent="Margin/Tabs/LockerRoom/AttributeScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LiveFeed" type="VBoxContainer" parent="Margin/Tabs"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Header" type="HBoxContainer" parent="Margin/Tabs/LiveFeed"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/Tabs/LiveFeed/Header"]
 layout_mode = 2
 text = "Hardwood Hoops - Live Feed"
 size_flags_horizontal = 3
 
-[node name="Clock" type="Label" parent="Margin/Root/Header"]
+[node name="Clock" type="Label" parent="Margin/Tabs/LiveFeed/Header"]
 layout_mode = 2
 horizontal_alignment = 2
 text = "Q1 12:00"
 
-[node name="Score" type="Label" parent="Margin/Root"]
+[node name="Score" type="Label" parent="Margin/Tabs/LiveFeed"]
 layout_mode = 2
 text = "Home 0 - 0 Away"
 
-[node name="Feed" type="RichTextLabel" parent="Margin/Root"]
+[node name="Feed" type="RichTextLabel" parent="Margin/Tabs/LiveFeed"]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
