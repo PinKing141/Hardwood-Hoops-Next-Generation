@@ -1,5 +1,7 @@
 using Godot;
 using HardwoodHoops.Core;
+using PlayerPosition = HardwoodHoops.Core.Position;
+using GodotTimer = Godot.Timer;
 
 namespace HardwoodHoops;
 
@@ -25,11 +27,11 @@ public partial class Main : Control
         _clockLabel = GetNode<Label>("Margin/Root/Header/Clock");
         _scoreLabel = GetNode<Label>("Margin/Root/Score");
 
-        _player = PlayerProfile.CreateSample("Player One", Position.PointGuard, CareerPhase.HighSchool);
-        _defender = PlayerProfile.CreateSample("Defender One", Position.ShootingGuard, CareerPhase.HighSchool);
+        _player = PlayerProfile.CreateSample("Player One", PlayerPosition.PointGuard, CareerPhase.HighSchool);
+        _defender = PlayerProfile.CreateSample("Defender One", PlayerPosition.ShootingGuard, CareerPhase.HighSchool);
         _clock = new GameClock(12 * 60, 4);
 
-        var timer = GetNode<Timer>("PossessionTimer");
+        var timer = GetNode<GodotTimer>("PossessionTimer");
         timer.Timeout += OnPossessionTick;
 
         AppendFeed("[b]Tip-off![/b] The game is underway.");
