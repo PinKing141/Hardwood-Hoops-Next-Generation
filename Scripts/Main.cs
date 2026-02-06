@@ -2,6 +2,8 @@ using Godot;
 using HardwoodHoops.Core;
 using System;
 using System.Collections.Generic;
+using PlayerPosition = HardwoodHoops.Core.Position;
+using GodotTimer = Godot.Timer;
 
 namespace HardwoodHoops;
 
@@ -51,6 +53,11 @@ public partial class Main : Control
         _clock = new GameClock(12 * 60, 4);
 
         var timer = GetNode<Godot.Timer>("PossessionTimer");
+        _player = PlayerProfile.CreateSample("Player One", PlayerPosition.PointGuard, CareerPhase.HighSchool);
+        _defender = PlayerProfile.CreateSample("Defender One", PlayerPosition.ShootingGuard, CareerPhase.HighSchool);
+        _clock = new GameClock(12 * 60, 4);
+
+        var timer = GetNode<GodotTimer>("PossessionTimer");
         timer.Timeout += OnPossessionTick;
 
         BuildAttributeGrid();
