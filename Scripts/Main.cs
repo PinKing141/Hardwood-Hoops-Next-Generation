@@ -148,13 +148,13 @@ public partial class Main : Control
             var stat = attribute.Selector(_player.Attributes);
             var row = new HBoxContainer
             {
-                SizeFlagsHorizontal = (int)Control.SizeFlags.ExpandFill
+                SizeFlagsHorizontal = Control.SizeFlags.ExpandFill
             };
 
             var nameLabel = new Label
             {
                 Text = attribute.Label,
-                SizeFlagsHorizontal = (int)Control.SizeFlags.ExpandFill
+                SizeFlagsHorizontal = Control.SizeFlags.ExpandFill
             };
 
             var valueLabel = new Label
@@ -169,7 +169,7 @@ public partial class Main : Control
                 MinValue = 0,
                 MaxValue = 100,
                 Value = stat.Progress,
-                SizeFlagsHorizontal = (int)Control.SizeFlags.ExpandFill,
+                SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
                 CustomMinimumSize = new Vector2(160, 18)
             };
 
