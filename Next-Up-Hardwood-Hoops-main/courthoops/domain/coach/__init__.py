@@ -1,0 +1,2 @@
+"""Coach entities and capabilities."""
+

@@ -1,0 +1,2 @@
+"""Recruiting domain models."""
+

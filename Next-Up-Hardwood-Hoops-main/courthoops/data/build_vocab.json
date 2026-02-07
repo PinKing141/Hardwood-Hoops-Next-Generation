@@ -1,0 +1,25 @@
+{
+  "prefixes": ["2 Way", "3 & D", "Defensive", "Lockdown", "Hybrid Defender"],
+  "offensive_cores": [
+    "Shot Creator", "Scorer", "Scoring Machine", "Walking Bucket", "Offensive Threat", "Perimeter Threat",
+    "Interior Scorer", "Inside Out Scorer", "Inside The Arc Scorer", "Shooter", "Sharpshooter", "Spot Up Threat",
+    "Slasher", "Finisher", "Athletic Finisher", "Lob Threat", "Interior Finisher", "Paint Beast", "Interior Force",
+    "Playmaker", "Facilitator", "Floor General", "Pass First Guard", "Pass First Wing", "Pass First Big",
+    "Offense Initiator", "Secondary Ball Handler", "Combo Guard", "Glass Cleaner", "Defensive Anchor",
+    "Rim Protector", "Paint Protector", "Perimeter Defender", "Lockdown Defender", "Ball Hawk",
+    "Point of Attack Stopper", "Stretch Four", "Stretch Five", "Small Ball Four", "Small Ball Wing",
+    "Point Forward", "Rebounding Guard", "Rebounding Wing"
+  ],
+  "specialisations": [
+    "3 Level", "3 PT", "Mid Range", "Inside Out", "Inside The Arc", "Deep Range",
+    "Playmaking", "Diming", "Facilitating", "Pass First", "Slashing", "Floor Spacing",
+    "Tempo Pushing", "Rim Running", "Balanced", "All Around", "Skilled", "Versatile"
+  ],
+  "compound_descriptors": [
+    "Shot Creating", "Shot Hunting", "Shot Blocking", "Sharpshooting", "Floor Spacing", "Spot Up", "Playmaking",
+    "Facilitating", "Tempo Pushing", "Diming", "Lockdown", "Perimeter", "Rebounding", "Glass Cleaning",
+    "Paint Protecting", "Hybrid"
+  ],
+  "compound_nouns": ["Guard", "Wing", "Forward", "Big", "Four", "Five", "Rebounder", "Defender", "Scorer", "Playmaker"],
+  "position_variants": ["Combo Guard", "Point Guard", "Two Guard", "Wing", "Forward", "Point Forward", "Big", "Four", "Five"]
+}
