@@ -23,7 +23,7 @@ public sealed class Player
     public string PlayerId { get; }
     public string Name { get; }
     public string ClassYear { get; set; }
-    public PlayerAttributes Attributes { get; set; }
+    public PlayerAttributes Attributes { get; }
     public PlayerTendencies Tendencies { get; }
     public PlayerPersonality Personality { get; }
     public double Fatigue { get; set; }
@@ -32,7 +32,7 @@ public sealed class Player
     public string? InjuryType { get; set; }
     public string? InjurySeverity { get; set; }
     public string? InjuryStatus { get; set; }
-    public Dictionary<string, object> Stats { get; } = new();
+    public Dictionary<string, double> Stats { get; } = new();
     public double MinutesAllocation { get; set; } = 20.0;
     public List<string> Badges { get; } = new();
     public string? Archetype { get; set; }
