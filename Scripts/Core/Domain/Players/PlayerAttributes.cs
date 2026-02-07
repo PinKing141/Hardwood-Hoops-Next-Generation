@@ -1,0 +1,31 @@
+namespace HardwoodHoops.Core.Domain.Players;
+
+public record PlayerAttributes(
+    int Layup,
+    int Dunk,
+    int Inside,
+    int MidRange,
+    int ThreePoint,
+    int FreeThrow,
+    int OffensiveRebound,
+    int BallControl,
+    int Passing,
+    int DefensiveRebound,
+    int PerimeterDefense,
+    int InteriorDefense,
+    int Steal,
+    int Block,
+    int Speed,
+    int Agility,
+    int Vertical,
+    int Strength,
+    int Stamina,
+    int OffensiveIq,
+    int DefensiveIq,
+    int Hustle,
+    int Potential,
+    int InjuryProneness,
+    int Clutch,
+    int Consistency,
+    int DecisionDiscipline
+);
