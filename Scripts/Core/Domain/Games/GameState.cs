@@ -18,7 +18,7 @@ public sealed class GameState
     public int ClockSeconds { get; set; } = 20 * 60;
     public Dictionary<string, int> Score { get; } = new() { ["home"] = 0, ["away"] = 0 };
     public List<GameEvent> Events { get; } = new();
-    public Dictionary<string, List<string>> Rosters { get; set; } = new();
+    public Dictionary<string, List<string>> Rosters { get; } = new();
     public Dictionary<string, List<string>> OnFloor { get; } = new();
     public Dictionary<string, List<string>> Bench { get; } = new();
     public Dictionary<string, double> FatigueByPlayer { get; } = new();
