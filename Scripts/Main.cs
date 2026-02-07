@@ -1,5 +1,10 @@
 using Godot;
 using HardwoodHoops.Core;
+using HardwoodHoops.Core.App.Services;
+using DomainPlayer = HardwoodHoops.Core.Domain.Players.Player;
+using DomainPlayerAttributes = HardwoodHoops.Core.Domain.Players.PlayerAttributes;
+using DomainPlayerPersonality = HardwoodHoops.Core.Domain.Players.PlayerPersonality;
+using DomainPlayerTendencies = HardwoodHoops.Core.Domain.Players.PlayerTendencies;
 using System;
 using System.Collections.Generic;
 using PlayerPosition = HardwoodHoops.Core.Position;
@@ -14,9 +19,11 @@ public partial class Main : Control
     private readonly EventLog _eventLog = new();
     private readonly ScoutingReport _scoutingReport = new();
     private readonly List<AttributeRow> _attributeRows = new();
+    private readonly ScoutingService _scoutingService = new();
 
     private PlayerProfile _player = null!;
     private PlayerProfile _defender = null!;
+    private DomainPlayer _scoutingPlayer = null!;
     private GameClock _clock = null!;
     private int _homeScore;
     private int _awayScore;
@@ -32,6 +39,9 @@ public partial class Main : Control
     private Label _privateOvrLabel = null!;
     private Label _archetypeLabel = null!;
     private VBoxContainer _attributeGrid = null!;
+    private Label _scoutingDetail = null!;
+    private Label _shotDietSummary = null!;
+    private Label _shotDietDetail = null!;
 
     public override void _Ready()
     {
@@ -47,9 +57,13 @@ public partial class Main : Control
         _privateOvrLabel = GetNode<Label>("Margin/Tabs/LockerRoom/OvrSection/OvrRow/PrivateOvrBox/PrivateOvrValue");
         _archetypeLabel = GetNode<Label>("Margin/Tabs/LockerRoom/ArchetypeLabel");
         _attributeGrid = GetNode<VBoxContainer>("Margin/Tabs/LockerRoom/AttributeScroll/AttributeGrid");
+        _scoutingDetail = GetNode<Label>("Margin/Tabs/Scouting/ScoutingDetail");
+        _shotDietSummary = GetNode<Label>("Margin/Tabs/ShotDiet/ShotDietSummary");
+        _shotDietDetail = GetNode<Label>("Margin/Tabs/ShotDiet/ShotDietDetail");
 
         _player = PlayerProfile.CreateSample("Player One", PlayerPosition.PointGuard, CareerPhase.HighSchool);
         _defender = PlayerProfile.CreateSample("Defender One", PlayerPosition.ShootingGuard, CareerPhase.HighSchool);
+        _scoutingPlayer = CreateScoutingPlayer(_player.Name);
         _clock = new GameClock(12 * 60, 4);
 
         var timer = GetNode<GodotTimer>("PossessionTimer");
@@ -57,6 +71,7 @@ public partial class Main : Control
 
         BuildAttributeGrid();
         UpdateLockerRoom();
+        UpdateScoutingPanels();
 
         AppendFeed("[b]Tip-off![/b] The game is underway.");
         UpdateLabels();
@@ -208,6 +223,50 @@ public partial class Main : Control
             row.ProgressBar.Value = stat.Progress;
             row.CapLabel.Text = $"Cap {stat.Cap}";
         }
+
+        UpdateScoutingPanels();
+    }
+
+    private void UpdateScoutingPanels()
+    {
+        var reports = _scoutingService.ScoutingReports(new[] { _scoutingPlayer });
+        if (reports.TryGetValue(_scoutingPlayer.PlayerId, out var report))
+        {
+            var roles = report["role_descriptors"] as List<string> ?? new List<string>();
+            _scoutingDetail.Text =
+                $"OVR: {report["public_ovr"]} | Build: {report["build_name"]} | Roles: {string.Join(", ", roles)} | Status: {report["status"]}";
+        }
+
+        var tendencies = _scoutingPlayer.Tendencies;
+        var close = FormatPercent(tendencies.ShotProfile[0]);
+        var mid = FormatPercent(tendencies.ShotProfile[1]);
+        var three = FormatPercent(tendencies.ShotProfile[2]);
+        var layup = FormatPercent(tendencies.RimAggression[0]);
+        var dunk = FormatPercent(tendencies.RimAggression[1]);
+        var catchShoot = FormatPercent(tendencies.ShotCreation[0]);
+        var pullUp = FormatPercent(tendencies.ShotCreation[1]);
+        var drive = FormatPercent(tendencies.ShotCreation[2]);
+
+        _shotDietSummary.Text = $"Close {close} | Mid {mid} | Three {three}";
+        _shotDietDetail.Text = $"Rim: Layup {layup} / Dunk {dunk} | Creation: Catch {catchShoot} / Pull-Up {pullUp} / Drive {drive}";
+    }
+
+    private static string FormatPercent(double value)
+    {
+        return $"{Math.Round(value * 100)}%";
+    }
+
+    private static DomainPlayer CreateScoutingPlayer(string name)
+    {
+        var attrs = new DomainPlayerAttributes(
+            70, 65, 68, 66, 72, 75, 55, 70, 68, 58, 65, 62, 60, 55, 78, 74, 80, 70, 85, 72, 70, 74, 82, 45, 68, 70, 66);
+        return new DomainPlayer(
+            playerId: "SCOUT-1",
+            name: name,
+            classYear: "HS FR",
+            attributes: attrs,
+            tendencies: DomainPlayerTendencies.Default(),
+            personality: DomainPlayerPersonality.Default());
     }
 
     private static string DetermineArchetype(PlayerAttributes attributes)
