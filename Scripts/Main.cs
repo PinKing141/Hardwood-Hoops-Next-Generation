@@ -48,11 +48,6 @@ public partial class Main : Control
         _archetypeLabel = GetNode<Label>("Margin/Tabs/LockerRoom/ArchetypeLabel");
         _attributeGrid = GetNode<VBoxContainer>("Margin/Tabs/LockerRoom/AttributeScroll/AttributeGrid");
 
-        _player = PlayerProfile.CreateSample("Player One", HardwoodHoops.Core.Position.PointGuard, CareerPhase.HighSchool);
-        _defender = PlayerProfile.CreateSample("Defender One", HardwoodHoops.Core.Position.ShootingGuard, CareerPhase.HighSchool);
-        _clock = new GameClock(12 * 60, 4);
-
-        var timer = GetNode<Godot.Timer>("PossessionTimer");
         _player = PlayerProfile.CreateSample("Player One", PlayerPosition.PointGuard, CareerPhase.HighSchool);
         _defender = PlayerProfile.CreateSample("Defender One", PlayerPosition.ShootingGuard, CareerPhase.HighSchool);
         _clock = new GameClock(12 * 60, 4);
