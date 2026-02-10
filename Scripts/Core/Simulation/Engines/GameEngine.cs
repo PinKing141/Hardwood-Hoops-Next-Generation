@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using HardwoodHoops.Core.Domain.Games;
+using DomainGameEvent = HardwoodHoops.Core.Domain.Games.GameEvent;
 
 namespace HardwoodHoops.Core.Simulation.Engines;
 
-public sealed class GameEngine : IGameEngine<GameState, GameEvent>
+public sealed class GameEngine : IGameEngine<GameState, DomainGameEvent>
 {
     private readonly PossessionEngine _possessionEngine;
 
@@ -12,9 +13,9 @@ public sealed class GameEngine : IGameEngine<GameState, GameEvent>
         _possessionEngine = possessionEngine;
     }
 
-    public IReadOnlyList<GameEvent> Simulate(GameState gameState)
+    public IReadOnlyList<DomainGameEvent> Simulate(GameState gameState)
     {
-        var events = new List<GameEvent>();
+        var events = new List<DomainGameEvent>();
         EnsureLineups(gameState);
         var possessions = 20;
         for (var i = 0; i < possessions; i++)
@@ -96,7 +97,7 @@ public sealed class GameEngine : IGameEngine<GameState, GameEvent>
         }
     }
 
-    private static void ApplyEvent(GameState gameState, GameEvent gameEvent)
+    private static void ApplyEvent(GameState gameState, DomainGameEvent gameEvent)
     {
         gameState.RecordEvent(gameEvent);
         if (gameEvent.EventType == "shot_made")

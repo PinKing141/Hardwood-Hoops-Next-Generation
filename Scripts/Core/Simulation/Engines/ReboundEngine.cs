@@ -4,6 +4,7 @@ using HardwoodHoops.Core.Domain.Games;
 using HardwoodHoops.Core.Domain.Players;
 using HardwoodHoops.Core.Simulation.PlayByPlay;
 using HardwoodHoops.Core.Simulation.Rng;
+using DomainGameEvent = HardwoodHoops.Core.Domain.Games.GameEvent;
 
 namespace HardwoodHoops.Core.Simulation.Engines;
 
@@ -29,7 +30,7 @@ public sealed class ReboundEngine
         _eventBuilder = eventBuilder ?? new EventBuilder();
     }
 
-    public GameEvent ResolveRebound(
+    public DomainGameEvent ResolveRebound(
         string offenseTeamId,
         string defenseTeamId,
         int period,
@@ -109,7 +110,7 @@ public sealed class ReboundEngine
             }
 
             var attrs = player.Attributes;
-            var baseValue = offense ? attrs.OffensiveRebound : attrs.DefensiveRebound;
+            var baseValue = offense ? (double)attrs.OffensiveRebound : attrs.DefensiveRebound;
             baseValue += (attrs.Vertical - 50) * 0.2 + (attrs.Strength - 50) * 0.15;
             baseValue -= fatigue.GetValueOrDefault(playerId, 0.0) * 0.2;
             baseValue *= ReboundIntentMultiplier(player, offense);
@@ -137,7 +138,7 @@ public sealed class ReboundEngine
             }
 
             var attrs = player.Attributes;
-            var baseValue = offense ? attrs.OffensiveRebound : attrs.DefensiveRebound;
+            var baseValue = offense ? (double)attrs.OffensiveRebound : attrs.DefensiveRebound;
             baseValue += (attrs.Vertical - 50) * 0.4 + (attrs.Strength - 50) * 0.25;
             baseValue -= fatigue.GetValueOrDefault(playerId, 0.0) * 0.3;
             baseValue *= ReboundIntentMultiplier(player, offense);

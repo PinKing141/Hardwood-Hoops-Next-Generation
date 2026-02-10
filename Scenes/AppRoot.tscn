@@ -1,0 +1,52 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/AppRoot.cs" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/MainMenu.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://Scenes/CharacterCreation.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Scenes/LoadGame.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://Scenes/Settings.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://Scenes/Main.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/RecruitingHub.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/NextGenTop100.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/ClassRankings.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/ShotDiet.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/ScoutingReport.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/FeaturedGameCalendar.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/RecruitingOffers.tscn" id="13"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/RecruitingCommitments.tscn" id="14"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/RecruitingInbox.tscn" id="15"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/PlayerCard.tscn" id="16"]
+[ext_resource type="PackedScene" path="res://Scenes/Recruiting/Progression.tscn" id="17"]
+
+[node name="AppRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+MainMenuScene = ExtResource("2")
+CharacterCreationScene = ExtResource("3")
+LoadGameScene = ExtResource("4")
+SettingsScene = ExtResource("5")
+GameplayScene = ExtResource("6")
+RecruitingHubScene = ExtResource("7")
+Top100Scene = ExtResource("8")
+ClassRankingsScene = ExtResource("9")
+ShotDietScene = ExtResource("10")
+ScoutingReportScene = ExtResource("11")
+FeaturedCalendarScene = ExtResource("12")
+RecruitingOffersScene = ExtResource("13")
+RecruitingCommitmentsScene = ExtResource("14")
+RecruitingInboxScene = ExtResource("15")
+PlayerCardScene = ExtResource("16")
+ProgressionScene = ExtResource("17")
+
+[node name="ScreenHost" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,68 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/Recruiting/PlayerCardView.cs" id="1"]
+
+[node name="PlayerCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.05, 0.07, 1)
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="Title" type="Label" parent="Root"]
+layout_mode = 2
+text = "Player Card —"
+
+[node name="Vitals" type="Label" parent="Root"]
+layout_mode = 2
+text = "SG 6'6\" 218 lbs"
+
+[node name="Stars" type="Label" parent="Root"]
+layout_mode = 2
+text = "Stars: ?????"
+
+[node name="Rank" type="Label" parent="Root"]
+layout_mode = 2
+text = "Rank: #7"
+
+[node name="Trend" type="Label" parent="Root"]
+layout_mode = 2
+text = "Trend: ? Rising"
+
+[node name="Build" type="Label" parent="Root"]
+layout_mode = 2
+text = "Build: 2 Way 3 Level Wing"
+
+[node name="Tags" type="Label" parent="Root"]
+layout_mode = 2
+text = "Tags: Floor Spacer, Rim Pressure"
+
+[node name="ShotDiet" type="Label" parent="Root"]
+layout_mode = 2
+text = "Shot Diet: Close 28% | Mid 34% | Three 38%"
+
+[node name="Footer" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="FooterHelp" type="Label" parent="Root/Footer"]
+layout_mode = 2
+text = "[Esc] Back"

@@ -4,6 +4,7 @@ using HardwoodHoops.Core.Domain.Games;
 using HardwoodHoops.Core.Domain.Players;
 using HardwoodHoops.Core.Simulation.PlayByPlay;
 using HardwoodHoops.Core.Simulation.Rng;
+using DomainGameEvent = HardwoodHoops.Core.Domain.Games.GameEvent;
 
 namespace HardwoodHoops.Core.Simulation.Engines;
 
@@ -29,7 +30,7 @@ public sealed class ShotEngine
         _eventBuilder = eventBuilder ?? new EventBuilder();
     }
 
-    public GameEvent ResolveShot(string offenseTeamId, string defenseTeamId, string? shooterId, string? assistedBy, string playType)
+    public DomainGameEvent ResolveShot(string offenseTeamId, string defenseTeamId, string? shooterId, string? assistedBy, string playType)
     {
         var offenseStrength = _offenseStrength(offenseTeamId);
         var defenseStrength = _defenseStrength(defenseTeamId);

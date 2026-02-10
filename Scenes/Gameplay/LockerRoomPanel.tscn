@@ -1,0 +1,89 @@
+[gd_scene format=3]
+
+[node name="LockerRoom" type="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_tab_index = 0
+
+[node name="PlayerHeader" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="PlayerHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Player Name"
+
+[node name="PositionLabel" type="Label" parent="PlayerHeader"]
+layout_mode = 2
+text = "Position"
+
+[node name="CareerLabel" type="Label" parent="PlayerHeader"]
+layout_mode = 2
+text = "Phase"
+
+[node name="HypeLabel" type="Label" parent="PlayerHeader"]
+layout_mode = 2
+text = "Hype 0"
+
+[node name="StarsLabel" type="Label" parent="PlayerHeader"]
+layout_mode = 2
+text = "Stars ★★★"
+
+[node name="RankLabel" type="Label" parent="PlayerHeader"]
+layout_mode = 2
+text = "Rank Unranked"
+
+[node name="TrendLabel" type="Label" parent="PlayerHeader"]
+layout_mode = 2
+text = "Trend —"
+
+[node name="ArchetypeLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Archetype: Balanced"
+
+[node name="OvrSection" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="OvrTitle" type="Label" parent="OvrSection"]
+layout_mode = 2
+text = "OVR Comparison"
+
+[node name="OvrRow" type="HBoxContainer" parent="OvrSection"]
+layout_mode = 2
+
+[node name="PublicOvrBox" type="VBoxContainer" parent="OvrSection/OvrRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PublicOvrTitle" type="Label" parent="OvrSection/OvrRow/PublicOvrBox"]
+layout_mode = 2
+text = "Player Overall"
+
+[node name="PublicOvrValue" type="Label" parent="OvrSection/OvrRow/PublicOvrBox"]
+layout_mode = 2
+text = "0.0"
+
+[node name="PrivateOvrBox" type="VBoxContainer" parent="OvrSection/OvrRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PrivateOvrTitle" type="Label" parent="OvrSection/OvrRow/PrivateOvrBox"]
+layout_mode = 2
+text = "Scout's Insight"
+
+[node name="PrivateOvrValue" type="Label" parent="OvrSection/OvrRow/PrivateOvrBox"]
+layout_mode = 2
+text = "0.0"
+
+[node name="AttributeTitle" type="Label" parent="."]
+layout_mode = 2
+text = "Attributes"
+
+[node name="AttributeScroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AttributeGrid" type="VBoxContainer" parent="AttributeScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

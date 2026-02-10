@@ -1,0 +1,55 @@
+﻿[gd_scene format=3 uid="uid://ewwbk55jyg44"]
+
+[ext_resource type="Script" uid="uid://x4idlskb5sep" path="res://Scripts/Main.cs" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/LockerRoomPanel.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/LiveFeedPanel.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/ScoutingPanel.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/ShotDietPanel.tscn" id="5"]
+
+[node name="GameSimulation" type="Control" unique_id=1789580796]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1406804600]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tabs" type="TabContainer" parent="Margin" unique_id=219222890]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="LockerRoom" parent="Margin/Tabs" instance=ExtResource("2") unique_id=424590843]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LiveFeed" parent="Margin/Tabs" instance=ExtResource("3") unique_id=71226521]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Scouting" parent="Margin/Tabs" instance=ExtResource("4") unique_id=1474334948]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShotDiet" parent="Margin/Tabs" instance=ExtResource("5") unique_id=637085757]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PossessionTimer" type="Timer" parent="." unique_id=1466671298]
+wait_time = 0.75
+autostart = true
+
+

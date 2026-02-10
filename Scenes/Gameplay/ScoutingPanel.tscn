@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[node name="Scouting" type="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_tab_index = 2
+
+[node name="ScoutingHeader" type="Label" parent="."]
+layout_mode = 2
+text = "Scouting Report"
+
+[node name="ScoutingSummary" type="Label" parent="."]
+layout_mode = 2
+text = "Build / Roles / Status"
+
+[node name="ScoutingDetail" type="Label" parent="."]
+layout_mode = 2
+text = "OVR: -- | Build: -- | Roles: -- | Status: --"

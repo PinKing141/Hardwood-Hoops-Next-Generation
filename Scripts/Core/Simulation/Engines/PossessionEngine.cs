@@ -4,6 +4,7 @@ using System.Linq;
 using HardwoodHoops.Core.Domain.Games;
 using HardwoodHoops.Core.Simulation.PlayByPlay;
 using HardwoodHoops.Core.Simulation.Rng;
+using DomainGameEvent = HardwoodHoops.Core.Domain.Games.GameEvent;
 
 namespace HardwoodHoops.Core.Simulation.Engines;
 
@@ -29,14 +30,14 @@ public sealed class PossessionEngine
         _eventBuilder = eventBuilder ?? new EventBuilder();
     }
 
-    public IReadOnlyList<GameEvent> RunPossession(
+    public IReadOnlyList<DomainGameEvent> RunPossession(
         GameState gameState,
         string offenseTeamId,
         string defenseTeamId,
         IReadOnlyList<string> offenseLineup,
         IReadOnlyList<string> defenseLineup)
     {
-        var events = new List<GameEvent>();
+        var events = new List<DomainGameEvent>();
         var (playType, shooter) = SelectPlayAndShooter(offenseLineup, _rng);
         var assistedBy = SelectAssister(offenseLineup, shooter, playType, _rng);
         var defender = defenseLineup.Count > 0 ? defenseLineup[_rng.NextInt(0, defenseLineup.Count - 1)] : null;
@@ -135,7 +136,7 @@ public sealed class PossessionEngine
         return candidates.Count == 0 ? null : candidates[rng.NextInt(0, candidates.Count - 1)];
     }
 
-    private GameEvent BuildEvent(string eventType, string teamId, string? playerId, int period)
+    private DomainGameEvent BuildEvent(string eventType, string teamId, string? playerId, int period)
     {
         var payload = new Dictionary<string, object>
         {
@@ -147,7 +148,7 @@ public sealed class PossessionEngine
         return _eventBuilder.Build(eventType, eventType.Replace("_", " "), payload);
     }
 
-    private static GameEvent ShootFreeThrow(string offenseTeamId, int period, string? shooterId, IRng rng)
+    private static DomainGameEvent ShootFreeThrow(string offenseTeamId, int period, string? shooterId, IRng rng)
     {
         var make = rng.NextDouble() < 0.75;
         var payload = new Dictionary<string, object>

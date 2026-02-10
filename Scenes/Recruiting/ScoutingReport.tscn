@@ -1,0 +1,112 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/Recruiting/ScoutingReportView.cs" id="1"]
+
+[node name="ScoutingReport" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.05, 0.07, 1)
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="Header" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Root/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scouting Report — Favour Ezeh (SG)"
+
+[node name="Meta" type="Label" parent="Root/Header"]
+layout_mode = 2
+text = "NextGen Top 100: #7  •  ?????  •  Trend: ? Rising"
+horizontal_alignment = 2
+
+[node name="Vitals" type="Label" parent="Root"]
+layout_mode = 2
+text = "Vitals: 6'6\" 218 lbs  •  Wingspan 6'9\"  •  Hand: R  •  Class: 2027  •  HS: Dagenham Prep (FL)"
+
+[node name="Build" type="Label" parent="Root"]
+layout_mode = 2
+text = "Build: 2 Way 3 Level Wing"
+
+[node name="Snapshot" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="SnapshotTitle" type="Label" parent="Root/Snapshot"]
+layout_mode = 2
+text = "Playstyle Snapshot"
+
+[node name="SnapshotLines" type="Label" parent="Root/Snapshot"]
+layout_mode = 2
+text = "- Shot Profile: Close 28% | Mid 34% | Three 38%\n- Rim Attack: Layup 62% | Dunk 38%\n- Creation: Catch 31% | Pull-Up 29% | Rim 40%\n- Defence: Disciplined 55% | Gambler 45%"
+
+[node name="Strengths" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="StrengthsTitle" type="Label" parent="Root/Strengths"]
+layout_mode = 2
+text = "Strengths"
+
+[node name="StrengthsLines" type="Label" parent="Root/Strengths"]
+layout_mode = 2
+text = "- Disruptive on-ball pressure, good length, strong body positioning\n- Comfortable scoring in space; attacks closeouts with intent\n- Competes on the glass for a guard"
+
+[node name="Concerns" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="ConcernsTitle" type="Label" parent="Root/Concerns"]
+layout_mode = 2
+text = "Concerns"
+
+[node name="ConcernsLines" type="Label" parent="Root/Concerns"]
+layout_mode = 2
+text = "- Efficiency dips when forced into heavy pull-up volume\n- Foul risk rises when gambling while fatigued"
+
+[node name="Featured" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="FeaturedTitle" type="Label" parent="Root/Featured"]
+layout_mode = 2
+text = "Featured Games (last 3)"
+
+[node name="FeaturedLines" type="Label" parent="Root/Featured"]
+layout_mode = 2
+text = "- AAU Showcase vs AZ Unity: 22 PTS, 6 REB, 3 STL, 4 TOV (W)\n- HS Rivalry vs Eastview: 14 PTS, 9 REB, 2 BLK (W)\n- AAU QF vs Team Takeover: 11 PTS, 5 AST, 5 PF (L)"
+
+[node name="Recruiting" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="RecruitingTitle" type="Label" parent="Root/Recruiting"]
+layout_mode = 2
+text = "Recruiting"
+
+[node name="RecruitingLines" type="Label" parent="Root/Recruiting"]
+layout_mode = 2
+text = "Offers: 5  •  Interest: High Major + 2 Blueblood Watchlists\nNotes: Scout presence increasing at next AAU checkpoint"
+
+[node name="Footer" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="FooterHelp" type="Label" parent="Root/Footer"]
+layout_mode = 2
+text = "[Esc] Back  [O] Offers  [N] Next Prospect  [P] Previous Prospect"

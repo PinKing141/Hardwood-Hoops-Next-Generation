@@ -1,19 +1,21 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://ewwbk55jyg44"]
 
-[ext_resource type="Script" path="res://Scripts/Main.cs" id="1"]
+[ext_resource type="Script" uid="uid://x4idlskb5sep" path="res://Scripts/Main.cs" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/LockerRoomPanel.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/LiveFeedPanel.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/ScoutingPanel.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://Scenes/Gameplay/ShotDietPanel.tscn" id="5"]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=1789580796]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="." unique_id=1406804600]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,147 +24,30 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = -16.0
 offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Tabs" type="TabContainer" parent="Margin"]
+[node name="Tabs" type="TabContainer" parent="Margin" unique_id=219222890]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="LockerRoom" parent="Margin/Tabs" instance=ExtResource("2") unique_id=424590843]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LockerRoom" type="VBoxContainer" parent="Margin/Tabs"]
+[node name="LiveFeed" parent="Margin/Tabs" instance=ExtResource("3") unique_id=71226521]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayerHeader" type="HBoxContainer" parent="Margin/Tabs/LockerRoom"]
-layout_mode = 2
-
-[node name="NameLabel" type="Label" parent="Margin/Tabs/LockerRoom/PlayerHeader"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Player Name"
-
-[node name="PositionLabel" type="Label" parent="Margin/Tabs/LockerRoom/PlayerHeader"]
-layout_mode = 2
-text = "Position"
-
-[node name="CareerLabel" type="Label" parent="Margin/Tabs/LockerRoom/PlayerHeader"]
-layout_mode = 2
-text = "Phase"
-
-[node name="HypeLabel" type="Label" parent="Margin/Tabs/LockerRoom/PlayerHeader"]
-layout_mode = 2
-text = "Hype 0"
-
-[node name="ArchetypeLabel" type="Label" parent="Margin/Tabs/LockerRoom"]
-layout_mode = 2
-text = "Archetype: Balanced"
-
-[node name="OvrSection" type="VBoxContainer" parent="Margin/Tabs/LockerRoom"]
-layout_mode = 2
-
-[node name="OvrTitle" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection"]
-layout_mode = 2
-text = "OVR Comparison"
-
-[node name="OvrRow" type="HBoxContainer" parent="Margin/Tabs/LockerRoom/OvrSection"]
-layout_mode = 2
-
-[node name="PublicOvrBox" type="VBoxContainer" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PublicOvrTitle" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow/PublicOvrBox"]
-layout_mode = 2
-text = "Public OVR"
-
-[node name="PublicOvrValue" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow/PublicOvrBox"]
-layout_mode = 2
-text = "0.0"
-
-[node name="PrivateOvrBox" type="VBoxContainer" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PrivateOvrTitle" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow/PrivateOvrBox"]
-layout_mode = 2
-text = "Scout's Insight"
-
-[node name="PrivateOvrValue" type="Label" parent="Margin/Tabs/LockerRoom/OvrSection/OvrRow/PrivateOvrBox"]
-layout_mode = 2
-text = "0.0"
-
-[node name="AttributeTitle" type="Label" parent="Margin/Tabs/LockerRoom"]
-layout_mode = 2
-text = "Attributes"
-
-[node name="AttributeScroll" type="ScrollContainer" parent="Margin/Tabs/LockerRoom"]
+[node name="Scouting" parent="Margin/Tabs" instance=ExtResource("4") unique_id=1474334948]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AttributeGrid" type="VBoxContainer" parent="Margin/Tabs/LockerRoom/AttributeScroll"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="LiveFeed" type="VBoxContainer" parent="Margin/Tabs"]
+[node name="ShotDiet" parent="Margin/Tabs" instance=ExtResource("5") unique_id=637085757]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Header" type="HBoxContainer" parent="Margin/Tabs/LiveFeed"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="Margin/Tabs/LiveFeed/Header"]
-layout_mode = 2
-text = "Hardwood Hoops - Live Feed"
-size_flags_horizontal = 3
-
-[node name="Clock" type="Label" parent="Margin/Tabs/LiveFeed/Header"]
-layout_mode = 2
-horizontal_alignment = 2
-text = "Q1 12:00"
-
-[node name="Score" type="Label" parent="Margin/Tabs/LiveFeed"]
-layout_mode = 2
-text = "Home 0 - 0 Away"
-
-[node name="Feed" type="RichTextLabel" parent="Margin/Tabs/LiveFeed"]
-layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-scroll_active = true
-scroll_following = true
-
-[node name="Scouting" type="VBoxContainer" parent="Margin/Tabs"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ScoutingHeader" type="Label" parent="Margin/Tabs/Scouting"]
-layout_mode = 2
-text = "Scouting Report"
-
-[node name="ScoutingSummary" type="Label" parent="Margin/Tabs/Scouting"]
-layout_mode = 2
-text = "Build / Roles / Status"
-
-[node name="ScoutingDetail" type="Label" parent="Margin/Tabs/Scouting"]
-layout_mode = 2
-text = "OVR: -- | Build: -- | Roles: -- | Status: --"
-
-[node name="ShotDiet" type="VBoxContainer" parent="Margin/Tabs"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ShotDietHeader" type="Label" parent="Margin/Tabs/ShotDiet"]
-layout_mode = 2
-text = "Shot Diet (Preference)"
-
-[node name="ShotDietSummary" type="Label" parent="Margin/Tabs/ShotDiet"]
-layout_mode = 2
-text = "Close / Mid / Three | Rim Attack | Creation"
-
-[node name="ShotDietDetail" type="Label" parent="Margin/Tabs/ShotDiet"]
-layout_mode = 2
-text = "Close 0% | Mid 0% | Three 0%"
-
-[node name="PossessionTimer" type="Timer" parent="."]
+[node name="PossessionTimer" type="Timer" parent="." unique_id=1466671298]
 wait_time = 0.75
-one_shot = false
 autostart = true

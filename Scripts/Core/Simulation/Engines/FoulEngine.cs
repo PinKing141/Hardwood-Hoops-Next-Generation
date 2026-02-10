@@ -4,6 +4,7 @@ using HardwoodHoops.Core.Domain.Games;
 using HardwoodHoops.Core.Domain.Players;
 using HardwoodHoops.Core.Simulation.PlayByPlay;
 using HardwoodHoops.Core.Simulation.Rng;
+using DomainGameEvent = HardwoodHoops.Core.Domain.Games.GameEvent;
 
 namespace HardwoodHoops.Core.Simulation.Engines;
 
@@ -29,7 +30,7 @@ public sealed class FoulEngine
         _eventBuilder = eventBuilder ?? new EventBuilder();
     }
 
-    public GameEvent? MaybeCommitFoul(
+    public DomainGameEvent? MaybeCommitFoul(
         string offenseTeamId,
         string defenseTeamId,
         int period,

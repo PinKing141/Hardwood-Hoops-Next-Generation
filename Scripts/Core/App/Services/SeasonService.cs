@@ -4,22 +4,23 @@ using HardwoodHoops.Core.Domain.Games;
 using HardwoodHoops.Core.Domain.Players;
 using HardwoodHoops.Core.Infra.Persistence;
 using HardwoodHoops.Core.Simulation.Engines;
+using DomainGameEvent = HardwoodHoops.Core.Domain.Games.GameEvent;
 
 namespace HardwoodHoops.Core.App.Services;
 
 public sealed class SeasonService
 {
     private readonly IGameRepository<GameState> _gameRepo;
-    private readonly IPlayByPlayRepository<GameEvent> _pbpRepo;
+    private readonly IPlayByPlayRepository<DomainGameEvent> _pbpRepo;
     private readonly IBoxScoreRepository<BoxScore> _boxScoreRepo;
-    private readonly IGameEngineFactory<GameState, GameEvent> _engineFactory;
+    private readonly IGameEngineFactory<GameState, DomainGameEvent> _engineFactory;
     private readonly InjuryService _injuryService;
 
     public SeasonService(
         IGameRepository<GameState> gameRepo,
-        IPlayByPlayRepository<GameEvent> pbpRepo,
+        IPlayByPlayRepository<DomainGameEvent> pbpRepo,
         IBoxScoreRepository<BoxScore> boxScoreRepo,
-        IGameEngineFactory<GameState, GameEvent> engineFactory,
+        IGameEngineFactory<GameState, DomainGameEvent> engineFactory,
         InjuryService? injuryService = null)
     {
         _gameRepo = gameRepo;
@@ -43,10 +44,11 @@ public sealed class SeasonService
 
         foreach (var (gameId, homeId, awayId) in schedule)
         {
-            var gameState = new GameState(gameId, homeId, awayId)
+            var gameState = new GameState(gameId, homeId, awayId);
+            foreach (var (teamId, roster) in rosters)
             {
-                Rosters = new Dictionary<string, List<string>>(rosters)
-            };
+                gameState.Rosters[teamId] = new List<string>(roster);
+            }
 
             if (fatigueCarryover)
             {
@@ -117,7 +119,7 @@ public sealed class SeasonService
         return boxScores;
     }
 
-    private static Dictionary<string, object> BuildBoxScorePayload(GameState gameState, IReadOnlyList<GameEvent> events)
+    private static Dictionary<string, object> BuildBoxScorePayload(GameState gameState, IReadOnlyList<DomainGameEvent> events)
     {
         var playerTeam = new Dictionary<string, string>();
         foreach (var (teamId, roster) in gameState.Rosters)

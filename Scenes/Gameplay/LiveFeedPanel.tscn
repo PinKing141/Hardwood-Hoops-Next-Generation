@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[node name="LiveFeed" type="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_tab_index = 1
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hardwood Hoops - Live Feed"
+
+[node name="Clock" type="Label" parent="Header"]
+layout_mode = 2
+text = "Q1 12:00"
+horizontal_alignment = 2
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+text = "Home 0 - 0 Away"
+
+[node name="Feed" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true

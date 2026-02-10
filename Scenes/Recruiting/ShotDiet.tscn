@@ -1,0 +1,144 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/Recruiting/ShotDietView.cs" id="1"]
+
+[node name="ShotDiet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.05, 0.07, 1)
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="Header" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Root/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Shot Diet — Favour Ezeh (SG)"
+
+[node name="Meta" type="Label" parent="Root/Header"]
+layout_mode = 2
+text = "NextGen Rank: #7  •  ?????  •  Trend: ? Rising"
+horizontal_alignment = 2
+
+[node name="Overview" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="OverviewTitle" type="Label" parent="Root/Overview"]
+layout_mode = 2
+text = "Overview"
+
+[node name="OverviewLines" type="Label" parent="Root/Overview"]
+layout_mode = 2
+text = "- Primary Role: Secondary Creator\n- Shot Profile: Close 28% | Mid 34% | Three 38%\n- Rim Attack: Layup 62% | Dunk 38%\n- Creation Type: Catch 31% | Pull-Up 29% | Rim 40%"
+
+[node name="ShotMap" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="ShotMapTitle" type="Label" parent="Root/ShotMap"]
+layout_mode = 2
+text = "Shot Map (Preference Heat)"
+
+[node name="Grid" type="GridContainer" parent="Root/ShotMap"]
+layout_mode = 2
+columns = 3
+
+[node name="Zone1" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Left Corner\n8%"
+
+[node name="Zone2" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Left Wing\n14%"
+
+[node name="Zone3" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Left Slot\n10%"
+
+[node name="Zone4" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Left Mid\n12%"
+
+[node name="Zone5" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Paint\n20%"
+
+[node name="Zone6" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Right Mid\n13%"
+
+[node name="Zone7" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Right Corner\n7%"
+
+[node name="Zone8" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Right Wing\n11%"
+
+[node name="Zone9" type="Label" parent="Root/ShotMap/Grid"]
+layout_mode = 2
+text = "Right Slot\n5%"
+
+[node name="Legend" type="Label" parent="Root/ShotMap"]
+layout_mode = 2
+text = "Legend: higher % = more attempts from that zone"
+
+[node name="Quality" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="QualityTitle" type="Label" parent="Root/Quality"]
+layout_mode = 2
+text = "Quality Split (Attempts)"
+
+[node name="QualityLines" type="Label" parent="Root/Quality"]
+layout_mode = 2
+text = "- At Rim: 40% (Layup 62% / Dunk 38%)\n- Short Mid: 18%\n- Long Mid: 16%\n- Threes: 38% (Corner 15% / Above Break 23%)"
+
+[node name="Creation" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="CreationTitle" type="Label" parent="Root/Creation"]
+layout_mode = 2
+text = "Creation Split (Attempts)"
+
+[node name="CreationLines" type="Label" parent="Root/Creation"]
+layout_mode = 2
+text = "- Catch & Shoot: 31%\n- Pull-Up: 29%\n- Off the Drive: 40%"
+
+[node name="Notes" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="NotesTitle" type="Label" parent="Root/Notes"]
+layout_mode = 2
+text = "Tendencies Notes"
+
+[node name="NotesLines" type="Label" parent="Root/Notes"]
+layout_mode = 2
+text = "- Prefers right-to-left pull-ups when crowded\n- Shoots more threes when hot; attacks rim when cold\n- Late-clock tendency: mid-range bailout"
+
+[node name="Footer" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="FooterHelp" type="Label" parent="Root/Footer"]
+layout_mode = 2
+text = "[Esc] Back  [??] Cycle Views  [F] Filter  [H] Home Zones"

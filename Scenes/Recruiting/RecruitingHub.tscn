@@ -1,0 +1,273 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/Recruiting/RecruitingHubView.cs" id="1"]
+
+[node name="RecruitingHub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.05, 0.07, 1)
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="Header" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Root/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Recruiting Hub"
+
+[node name="Update" type="Label" parent="Root/Header"]
+layout_mode = 2
+text = "Class of 2027  •  Updated: 13 Dec 2025"
+horizontal_alignment = 2
+
+[node name="QuickStats" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="Stars" type="Label" parent="Root/QuickStats"]
+layout_mode = 2
+text = "Stars: ?????"
+
+[node name="Rank" type="Label" parent="Root/QuickStats"]
+layout_mode = 2
+text = "Rank: #7"
+
+[node name="Trend" type="Label" parent="Root/QuickStats"]
+layout_mode = 2
+text = "Trend: ? Rising"
+
+[node name="Offers" type="Label" parent="Root/QuickStats"]
+layout_mode = 2
+text = "Offers: 5"
+
+[node name="Cards" type="GridContainer" parent="Root"]
+layout_mode = 2
+columns = 2
+size_flags_vertical = 3
+
+[node name="Top100Card" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="Top100Body" type="VBoxContainer" parent="Root/Cards/Top100Card"]
+layout_mode = 2
+
+[node name="Top100Title" type="Label" parent="Root/Cards/Top100Card/Top100Body"]
+layout_mode = 2
+text = "NextGen Top 100"
+
+[node name="Top100Desc" type="Label" parent="Root/Cards/Top100Card/Top100Body"]
+layout_mode = 2
+text = "National list, trend arrows, player card."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/Top100Card/Top100Body"]
+layout_mode = 2
+text = "Open"
+
+[node name="ClassCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="ClassBody" type="VBoxContainer" parent="Root/Cards/ClassCard"]
+layout_mode = 2
+
+[node name="ClassTitle" type="Label" parent="Root/Cards/ClassCard/ClassBody"]
+layout_mode = 2
+text = "Class Rankings"
+
+[node name="ClassDesc" type="Label" parent="Root/Cards/ClassCard/ClassBody"]
+layout_mode = 2
+text = "Banded ranks: Top 10 / 25 / 50 / 100."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/ClassCard/ClassBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="ShotDietCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="ShotDietBody" type="VBoxContainer" parent="Root/Cards/ShotDietCard"]
+layout_mode = 2
+
+[node name="ShotDietTitle" type="Label" parent="Root/Cards/ShotDietCard/ShotDietBody"]
+layout_mode = 2
+text = "Shot Diet"
+
+[node name="ShotDietDesc" type="Label" parent="Root/Cards/ShotDietCard/ShotDietBody"]
+layout_mode = 2
+text = "Preference heat + creation splits."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/ShotDietCard/ShotDietBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="ScoutingCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="ScoutingBody" type="VBoxContainer" parent="Root/Cards/ScoutingCard"]
+layout_mode = 2
+
+[node name="ScoutingTitle" type="Label" parent="Root/Cards/ScoutingCard/ScoutingBody"]
+layout_mode = 2
+text = "Scouting Report"
+
+[node name="ScoutingDesc" type="Label" parent="Root/Cards/ScoutingCard/ScoutingBody"]
+layout_mode = 2
+text = "Vitals, strengths, concerns, recent games."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/ScoutingCard/ScoutingBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="CalendarCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="CalendarBody" type="VBoxContainer" parent="Root/Cards/CalendarCard"]
+layout_mode = 2
+
+[node name="CalendarTitle" type="Label" parent="Root/Cards/CalendarCard/CalendarBody"]
+layout_mode = 2
+text = "Featured Calendar"
+
+[node name="CalendarDesc" type="Label" parent="Root/Cards/CalendarCard/CalendarBody"]
+layout_mode = 2
+text = "Featured vs background schedule."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/CalendarCard/CalendarBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="OffersCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="OffersBody" type="VBoxContainer" parent="Root/Cards/OffersCard"]
+layout_mode = 2
+
+[node name="OffersTitle" type="Label" parent="Root/Cards/OffersCard/OffersBody"]
+layout_mode = 2
+text = "Offers"
+
+[node name="OffersDesc" type="Label" parent="Root/Cards/OffersCard/OffersBody"]
+layout_mode = 2
+text = "Soft vs committable, tiers, visits."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/OffersCard/OffersBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="CommitmentsCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="CommitmentsBody" type="VBoxContainer" parent="Root/Cards/CommitmentsCard"]
+layout_mode = 2
+
+[node name="CommitmentsTitle" type="Label" parent="Root/Cards/CommitmentsCard/CommitmentsBody"]
+layout_mode = 2
+text = "Commitments"
+
+[node name="CommitmentsDesc" type="Label" parent="Root/Cards/CommitmentsCard/CommitmentsBody"]
+layout_mode = 2
+text = "Your status + others."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/CommitmentsCard/CommitmentsBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="InboxCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="InboxBody" type="VBoxContainer" parent="Root/Cards/InboxCard"]
+layout_mode = 2
+
+[node name="InboxTitle" type="Label" parent="Root/Cards/InboxCard/InboxBody"]
+layout_mode = 2
+text = "Recruiting Inbox"
+
+[node name="InboxDesc" type="Label" parent="Root/Cards/InboxCard/InboxBody"]
+layout_mode = 2
+text = "Coach notes + media blurbs."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/InboxCard/InboxBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="PlayerCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="PlayerBody" type="VBoxContainer" parent="Root/Cards/PlayerCard"]
+layout_mode = 2
+
+[node name="PlayerTitle" type="Label" parent="Root/Cards/PlayerCard/PlayerBody"]
+layout_mode = 2
+text = "Player Card"
+
+[node name="PlayerDesc" type="Label" parent="Root/Cards/PlayerCard/PlayerBody"]
+layout_mode = 2
+text = "Vitals, stars, trends, shot diet."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/PlayerCard/PlayerBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="ProgressionCard" type="PanelContainer" parent="Root/Cards"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 140)
+
+[node name="ProgressionBody" type="VBoxContainer" parent="Root/Cards/ProgressionCard"]
+layout_mode = 2
+
+[node name="ProgressionTitle" type="Label" parent="Root/Cards/ProgressionCard/ProgressionBody"]
+layout_mode = 2
+text = "Progression"
+
+[node name="ProgressionDesc" type="Label" parent="Root/Cards/ProgressionCard/ProgressionBody"]
+layout_mode = 2
+text = "Attribute changes over time."
+
+[node name="OpenButton" type="Button" parent="Root/Cards/ProgressionCard/ProgressionBody"]
+layout_mode = 2
+text = "Open"
+
+[node name="Footer" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="FooterHelp" type="Label" parent="Root/Footer"]
+layout_mode = 2
+text = "[Enter] Open  [Esc] Back  [??] Navigate"

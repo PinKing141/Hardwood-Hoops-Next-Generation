@@ -1,0 +1,80 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/LoadGame.cs" id="1"]
+
+[node name="LoadGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.07, 0.07, 0.09, 1)
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+
+[node name="Title" type="Label" parent="Root"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="Slots" type="VBoxContainer" parent="Root"]
+layout_mode = 2
+
+[node name="Slot1" type="HBoxContainer" parent="Root/Slots"]
+layout_mode = 2
+
+[node name="Slot1Label" type="Label" parent="Root/Slots/Slot1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slot 1 — Empty"
+
+[node name="Slot1Button" type="Button" parent="Root/Slots/Slot1"]
+layout_mode = 2
+text = "Load"
+
+[node name="Slot2" type="HBoxContainer" parent="Root/Slots"]
+layout_mode = 2
+
+[node name="Slot2Label" type="Label" parent="Root/Slots/Slot2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slot 2 — Empty"
+
+[node name="Slot2Button" type="Button" parent="Root/Slots/Slot2"]
+layout_mode = 2
+text = "Load"
+
+[node name="Slot3" type="HBoxContainer" parent="Root/Slots"]
+layout_mode = 2
+
+[node name="Slot3Label" type="Label" parent="Root/Slots/Slot3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slot 3 — Empty"
+
+[node name="Slot3Button" type="Button" parent="Root/Slots/Slot3"]
+layout_mode = 2
+text = "Load"
+
+[node name="Actions" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Root/Actions"]
+layout_mode = 2
+text = "Back"

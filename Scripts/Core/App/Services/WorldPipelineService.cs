@@ -5,6 +5,7 @@ using HardwoodHoops.Core.Domain.Recruiting;
 using HardwoodHoops.Core.Domain.Teams;
 using HardwoodHoops.Core.Infra.Persistence;
 using HardwoodHoops.Core.Simulation.Rng;
+using DomainPlayerAttributes = HardwoodHoops.Core.Domain.Players.PlayerAttributes;
 
 namespace HardwoodHoops.Core.App.Services;
 
@@ -103,7 +104,7 @@ public sealed class WorldPipelineService
         return vacancies;
     }
 
-    private Dictionary<string, string> DerivePositionMap(IEnumerable<Team> teams)
+    private Dictionary<string, string> DerivePositionMap(IReadOnlyList<Team> teams)
     {
         var mapping = new Dictionary<string, string>();
         var positions = new[] { "guard", "guard", "wing", "wing", "center" };
@@ -126,7 +127,7 @@ public sealed class WorldPipelineService
         {
             var pid = $"REC-{Guid.NewGuid():N}".Substring(0, 12);
             var pos = positions[_rng.NextInt(0, positions.Length - 1)];
-            var attrs = new PlayerAttributes(
+            var attrs = new DomainPlayerAttributes(
                 _rng.NextInt(40, 95),
                 _rng.NextInt(25, 95),
                 _rng.NextInt(35, 95),
@@ -169,7 +170,7 @@ public sealed class WorldPipelineService
         return recruits;
     }
 
-    private void AssignRecruitsToTeams(List<Player> recruits, List<Team> teams, Dictionary<string, int> vacancies)
+    private void AssignRecruitsToTeams(List<Player> recruits, IReadOnlyList<Team> teams, Dictionary<string, int> vacancies)
     {
         foreach (var recruit in recruits)
         {

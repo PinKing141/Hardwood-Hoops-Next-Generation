@@ -38,7 +38,11 @@ public sealed class ScoutingService
                 status = $"injured ({player.InjuryDays}d)";
             }
 
-            recruiting?.TryGetValue(player.PlayerId, out var rec);
+            RecruitingInterest? rec = null;
+            if (recruiting is not null)
+            {
+                recruiting.TryGetValue(player.PlayerId, out rec);
+            }
             var report = new Dictionary<string, object?>
             {
                 ["public_ovr"] = System.Math.Round(publicOvr, 1),
